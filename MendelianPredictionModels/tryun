@@ -1,0 +1,22 @@
+#!/bin/bash
+
+temp=( a b c d e f g h i )
+
+
+for a in {1..2}
+do 
+for b in "${temp[@]}"
+do
+filename=$PWD'/Simulation3/Simulation'$a$b'/Run_function_ua'
+for i in {1..5}
+do
+	echo -e 'special.index <-'"$i" "\n" 'tt <-'"$a" "\n" 'ttt <-' "'""$b""'" "\n" > "$filename$i"'.R'
+	cat riskN2_unadj.R >> $filename$i'.R'
+	chmod +x $filename"$i"'.R'
+	
+done
+done 
+done
+
+#check if loop matches
+#type: qsub run

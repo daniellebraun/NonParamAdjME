@@ -1,0 +1,27 @@
+#!/bin/bash
+temp=( a b c d e f g h i )
+
+
+for a in {1..2}
+do 
+for b in "${temp[@]}"
+do
+filename=$PWD'/Simulation3/Simulation'$a$b'/Run_function'
+filename2=$PWD'/Simulation3/Simulation'$a$b'/funSKM'
+
+for i in {1..100}
+do
+	
+	echo -e 'special.index <-'"$i" "\n" 'tt <-'"$a" "\n" 'ttt <-' "'""$b""'" "\n" > "$filename$i"'.R'
+	cat riskN2adj.R >> $filename$i'.R'
+	chmod +x $filename"$i"'.R'
+	echo -e 'tt <-'"$a" "\n" 'ttt <-' "'""$b""'" "\n" > "$filename2"'.R'
+	cat funSKM.R >> $filename2'.R'
+	chmod +x $filename2'.R'
+done
+done
+done
+
+
+#check if loop matches
+#type: qsub run
