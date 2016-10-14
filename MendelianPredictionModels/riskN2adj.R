@@ -77,6 +77,7 @@ dO[1,i]<-ifelse(newR$AffectedBreast[i]==2, 1, newR$AffectedBreast[i])
 
 #sample from ME distribution 
 a1<-0
+#call ME model to calculate P(H|H*)
 a1<-KMden(dO[1,i], tO[1,i]) 
 a1[is.na(a1)]<-0
 if(sum(a1)!=0) {
