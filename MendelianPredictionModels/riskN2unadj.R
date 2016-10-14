@@ -5,7 +5,7 @@ data(brca.fam,BRCApenet.metaDSL.2008,death.othercauses, compriskSurv, CBRCApenet
 temp2<-c(1,3)
 #proband either daughter or mother depending on tt
 proband<-temp2[tt]
-#obtain families on which to run adjustment 
+#obtain families
 fam1n2<- read.table(paste(getwd(),"/Simulation3/Simulation",tt,ttt,"/N2.txt", sep=""), sep="\t",  header=T)	
 
 fam1n2$AgeBreast<-ifelse(fam1n2$AgeBreast>110,110,fam1n2$AgeBreast)
